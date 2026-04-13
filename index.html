@@ -23,7 +23,6 @@
             scroll-behavior: smooth;
         }
 
-        /* custom scroll */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -41,7 +40,6 @@
             padding: 0 24px;
         }
 
-        /* Header & Nav */
         header {
             background: rgba(255, 252, 245, 0.95);
             backdrop-filter: blur(8px);
@@ -98,7 +96,6 @@
             color: #7e5a3a;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(112deg, #faf3e8 0%, #fff7ef 100%);
             padding: 70px 0 60px;
@@ -180,21 +177,11 @@
             max-width: 100%;
             border-radius: 32px;
             box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
-        }
-        /* placeholder if image missing */
-        .img-placeholder {
-            background: #e2d5c6;
             width: 100%;
-            border-radius: 32px;
-            min-height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: #8e745a;
+            height: auto;
+            object-fit: cover;
         }
 
-        /* categories / services */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -245,11 +232,10 @@
             color: #6b6258;
         }
 
-        /* Gallery / Portfolio */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
             margin: 40px 0;
         }
         .gallery-item {
@@ -260,6 +246,7 @@
             background: #ede3d7;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
         }
         .gallery-item img {
             width: 100%;
@@ -273,15 +260,15 @@
         .overlay {
             position: absolute;
             bottom: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.6), transparent);
+            background: linear-gradient(0deg, rgba(0,0,0,0.7), transparent);
             width: 100%;
             padding: 20px 12px 12px;
             color: white;
             font-weight: 600;
             text-align: center;
+            font-size: 1.1rem;
         }
 
-        /* About / Features */
         .about-section {
             background: #f8f2ea;
             border-radius: 48px;
@@ -324,7 +311,6 @@
             color: #c28a56;
         }
 
-        /* Contact / CTA */
         .contact-section {
             background: #2e2a24;
             color: #fdf6ed;
@@ -371,7 +357,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .nav-links {
                 display: none;
@@ -427,7 +412,6 @@
 </header>
 
 <main>
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
@@ -440,13 +424,11 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- صورة توضيحية (يمكنك استبدال الرابط بصورة حقيقية لمتجرك) -->
-                <img src="https://placehold.co/600x450/f3e9de/c7a16b?text=ستائر+فاخرة" alt="ستائر فاخرة" onerror="this.src='https://placehold.co/600x450/e2cfb5/8b5a2e?text=ستارة+مثالية'">
+                <img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=800&h=550&fit=crop" alt="ستارة فاخرة - غرفة أنيقة">
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
     <div class="container" id="categories">
         <div class="section-title">مجموعاتنا المميزة</div>
         <div class="categories-grid">
@@ -473,15 +455,11 @@
         </div>
     </div>
 
-    <!-- Gallery / Portfolio -->
     <div class="container" id="gallery">
         <div class="section-title">أعمالنا الفنية</div>
-        <div class="gallery" id="galleryContainer">
-            <!-- سيتم تعبئة المعرض بواسطة JS لإضافة صور افتراضية مع أسماء -->
-        </div>
+        <div class="gallery" id="galleryContainer"></div>
     </div>
 
-    <!-- About + features -->
     <div class="container" id="about">
         <div class="about-section">
             <div class="about-flex">
@@ -502,7 +480,6 @@
         </div>
     </div>
 
-    <!-- Contact / CTA -->
     <div class="container" id="contact">
         <div class="contact-section">
             <h3>هيا بنا نصنع جمال منزلك</h3>
@@ -525,28 +502,26 @@
 </footer>
 
 <script>
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('show');
     });
 
-    // smooth scroll to contact
     function scrollToContact() {
         const contactSection = document.getElementById('contact');
         contactSection.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // إضافة معرض صور ديناميكي (يظهر 6 أعمال بصور رمزية مع اسم الستارة)
+    // معرض صور فخم وجميل - صور عالية الجودة لستائر حقيقية
     const galleryContainer = document.getElementById('galleryContainer');
     const galleryItems = [
-        { name: 'ستائر ذهبية - كلاسيك', img: 'https://placehold.co/600x450/e5cfb3/a47848?text=ذهبي+مخمل' },
-        { name: 'روعة الأبيض والكتان', img: 'https://placehold.co/600x450/f3ede4/b28b5e?text=كتان+طبيعي' },
-        { name: 'عازلة رمادي أنيق', img: 'https://placehold.co/600x450/d9cdbc/8f724c?text=عازل+للحرارة' },
-        { name: 'ستائر سحاب - عصرية', img: 'https://placehold.co/600x450/e7d9ca/a57d52?text=مودرن+سادة' },
-        { name: 'فخامة رومانية', img: 'https://placehold.co/600x450/ddcbb6/ab835b?text=روماني+مخطط' },
-        { name: 'ستائر شيفون شفافة', img: 'https://placehold.co/600x450/eadbcb/b48a5a?text=شيفون+أنيق' }
+        { name: 'ستائر مخمل ذهبي - كلاسيك فاخر', img: 'https://images.unsplash.com/photo-1509647645664-4e6ef43ac7f1?w=600&h=450&fit=crop' },
+        { name: 'ستائر كتان طبيعي - أناقة عصرية', img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd6?w=600&h=450&fit=crop' },
+        { name: 'ستائر معتمة عازلة - رمادي أنيق', img: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a2e?w=600&h=450&fit=crop' },
+        { name: 'ستائر شيفون شفافة - لمسة رومانسية', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=450&fit=crop' },
+        { name: 'ستائر رومانية راقية - لغرف المعيشة', img: 'https://images.unsplash.com/photo-1616046229478-9901c5535c45?w=600&h=450&fit=crop' },
+        { name: 'ستائر مودرن ثلاثية الأبعاد', img: 'https://images.unsplash.com/photo-1615807713086-8b1b6f2a2b0c?w=600&h=450&fit=crop' }
     ];
 
     function buildGallery() {
@@ -555,7 +530,7 @@
             const galleryDiv = document.createElement('div');
             galleryDiv.className = 'gallery-item';
             galleryDiv.innerHTML = `
-                <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/600x450/e9dccf/bd8f60?text=ستارة+جديدة'">
+                <img src="${item.img}" alt="${item.name}" loading="lazy">
                 <div class="overlay">${item.name}</div>
             `;
             galleryDiv.addEventListener('click', () => {
@@ -566,7 +541,6 @@
     }
     buildGallery();
 
-    // active link highlight on scroll (بسيط)
     const sections = document.querySelectorAll('section, div[id]');
     const navItems = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
@@ -591,7 +565,6 @@
             }
         });
     });
-    // slight adjust for hero highlight on start
     if(window.location.hash === '') document.querySelector('.nav-links a[href="#"]').classList.add('active');
 </script>
 </body>
